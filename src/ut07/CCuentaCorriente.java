@@ -16,10 +16,7 @@ public class CCuentaCorriente extends CCuenta {
     protected int transExentas;
     
     public CCuentaCorriente(String nombre, String cuenta, double ingreso, double interes) {
-        this.setNombre(nombre);
-        this.setCuenta(cuenta);
-        this.ingreso(ingreso);
-        this.setInteres(interes);
+        super(nombre, cuenta, ingreso, interes);
     }
     public double getImportePorTrans() {
         return this.importePorTrans;

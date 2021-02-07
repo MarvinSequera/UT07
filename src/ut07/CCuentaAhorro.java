@@ -14,10 +14,7 @@ public class CCuentaAhorro extends CCuenta{
     protected double cuotaMan;
     
     public CCuentaAhorro(String nombreTitular, String numCuenta, double ingreso, double tipoDeInteres) {
-        this.setNombre(nombreTitular);
-        this.setCuenta(numCuenta);
-        this.ingreso(ingreso);
-        this.setInteres(tipoDeInteres);
+        super(nombreTitular, numCuenta, ingreso, tipoDeInteres);
     }
     public double getCoutaMan() {
         return this.cuotaMan;

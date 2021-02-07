@@ -52,10 +52,12 @@ public class CCuentaCorriente extends CCuenta {
             this.transExentas --;
         }
     }
+    @Override
     public void ingreso(double cantidad) {
         super.ingreso(cantidad);
         this.incrementarTransacciones();
     }
+    @Override
     public void reintegro(double cantidad) {
         super.reintegro(cantidad);
         this.incrementarTransacciones();
@@ -65,7 +67,7 @@ public class CCuentaCorriente extends CCuenta {
     protected void comisiones() {
         Calendar calendar = new GregorianCalendar();
         if(this.getSaldo() == 0 || calendar.get(Calendar.DAY_OF_MONTH) != 1){
-            return;
+            this.reintegro(0.0);
         }else if(this.getTransExentas() >= this.getTransacciones()){
             int leftTranacciones = this.getTransExentas() - this.getTransacciones();
             this.setTransExentas(leftTranacciones);
@@ -79,7 +81,7 @@ public class CCuentaCorriente extends CCuenta {
     protected void intereses() {
         Calendar calendar = new GregorianCalendar();
         if(this.getSaldo() == 0 || calendar.get(Calendar.DAY_OF_MONTH) != 1){
-            return;
+            this.ingreso(0.0);
         }else if(this.getSaldo() <= 3000){
             this.setInteres(0.5);
             double importeIntereses = this.getSaldo() * this.getInteres() / 100;

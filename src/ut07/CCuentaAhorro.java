@@ -29,7 +29,7 @@ public class CCuentaAhorro extends CCuenta{
     public void comisiones() {
         Calendar calendar = new GregorianCalendar();
         if(this.getSaldo() <= 0 || calendar.get(Calendar.DAY_OF_MONTH) != 1) {
-            return;
+            this.reintegro(0.0);
         }else if(this.getSaldo() > 0 && this.getSaldo() < this.getCoutaMan()) {
             this.reintegro(this.getSaldo());
         }else {
@@ -40,7 +40,7 @@ public class CCuentaAhorro extends CCuenta{
     public void intereses() {
         Calendar calendar = new GregorianCalendar();
         if(calendar.get(Calendar.DAY_OF_MONTH) != 1 || this.getSaldo() <= 0) {
-            return;
+            this.ingreso(0.0);
         }
         double importeIntereses = this.getInteres() * this.getSaldo() / 100;
         

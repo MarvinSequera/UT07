@@ -13,8 +13,9 @@ import java.util.GregorianCalendar;
 public class CCuentaAhorro extends CCuenta{
     protected double cuotaMan;
     
-    public CCuentaAhorro(String nombreTitular, String numCuenta, double ingreso, double tipoDeInteres) {
+    public CCuentaAhorro(String nombreTitular, String numCuenta, double ingreso, double tipoDeInteres, double cuota) {
         super(nombreTitular, numCuenta, ingreso, tipoDeInteres);
+        this.setCoutaMan(cuota);
     }
     public double getCoutaMan() {
         return this.cuotaMan;

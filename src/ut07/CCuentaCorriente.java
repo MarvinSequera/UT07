@@ -61,7 +61,7 @@ public class CCuentaCorriente extends CCuenta {
     }
 
     @Override
-    protected void comisiones() {
+    public void comisiones() {
         Calendar calendar = new GregorianCalendar();
         if(this.getSaldo() == 0 || calendar.get(Calendar.DAY_OF_MONTH) != 1){
             this.reintegro(0.0);
@@ -75,7 +75,7 @@ public class CCuentaCorriente extends CCuenta {
         }
     }
     @Override
-    protected void intereses() {
+    public void intereses() {
         Calendar calendar = new GregorianCalendar();
         if(this.getSaldo() == 0 || calendar.get(Calendar.DAY_OF_MONTH) != 1){
             this.ingreso(0.0);
